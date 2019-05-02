@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/jsf/core ">
+
+<style type="text/css">
+    body {
+        margin: 0;
+        font: 1rem/1 Arial, sans-serif;
+    }
+
+    table {
+        color: #fff;
+        font-size: 2rem;
+        line-height: 0.4;
+        font-weight: 900;
+        margin: 2rem auto;
+    }
+
+    td {
+        background: #ffde26;
+        padding: 2rem;
+    }
+
+    .button-group {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .button-group button {
+        font-size: 2rem;
+    }
+</style>
+
+<h:head>
+    <title>2048</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <f:view>
+            <table>
+                <c:forEach var="row" items="#{cellController.grid}">
+                    <tr>
+                        <c:forEach var="cell" items="#{row}">
+                            <td><h:outputLabel value="#{cell.number}"/></td>
+                        </c:forEach>
+                    </tr>
+                </c:forEach>
+            </table>
+
+            <div class="button-group">
+                <h:commandButton value="&uarr;" action="#{cellController.moveUp()}"> </h:commandButton>
+                <h:commandButton value="&larr;" action="#{cellController.moveLeft()}"> </h:commandButton>
+                <h:commandButton value="&darr;" action="#{cellController.moveDown()}"> </h:commandButton>
+                <h:commandButton value="&rarr;" action="#{cellController.moveRight()}"> </h:commandButton>
+            </div>
+        </f:view>
+    </h:form>
+</h:body>
+</html>
